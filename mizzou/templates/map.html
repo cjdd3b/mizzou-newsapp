@@ -1,0 +1,50 @@
+<html>
+
+    <head>
+
+         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+         <!--[if lte IE 8]>
+             <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
+         <![endif]-->
+         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+         <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+         <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+         <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+
+         <style type="text/css">
+            #map { height: 500px; }
+         </style>
+
+    </head>
+
+    <body>
+
+        <div class="container">
+
+         <div id="map"></div>
+
+         <script type="text/javascript">
+            map = new L.Map('map');
+
+            var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+            var osmAttrib='Map data © OpenStreetMap contributors';
+            var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});       
+
+            map.setView(new L.LatLng(38.972180,-92.296170),9);
+            map.addLayer(osm);
+
+            $.getJSON('/points/', function(data, textStatus, jqXHR) {
+                for (var i = 0; i < data.length; i++) {
+                    L.marker([data[i].lat, data[i].lng]).addTo(map)
+                        .bindPopup("<b>Hello world!</b><br />I am a popup.");
+                    //html += '<div class="item">' + '<a href="' + link + '" target="_blank">' + text + '</a></div>';
+                }
+            }); 
+
+         </script>
+    </div>
+
+    </body>
+
+</html>
