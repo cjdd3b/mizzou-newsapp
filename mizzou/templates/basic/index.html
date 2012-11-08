@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Columbia Police Dispatch: All types{% endblock %}
+
+{% block body %}
+
+<table class="table">
+    <tbody>
+        {% for t in types %}
+        <tr>
+            <td><a href="{{ t.get_absolute_url }}">{{ t.name }}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

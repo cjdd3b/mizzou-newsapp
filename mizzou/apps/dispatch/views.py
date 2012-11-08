@@ -1,6 +1,35 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from mizzou.apps.dispatch.models import Dispatch, Type
 
+########## THE BASICS ##########
+
+def dispatch_list(request):
+    '''
+    View to list all dispatch types.
+    '''
+    # Return all types of dispatch calls for display in a list
+    types = Type.objects.all().order_by('name')
+
+    # Use the render-to-response shortcut to send the data to a template
+    # See: https://docs.djangoproject.com/en/dev/topics/http/shortcuts/#render-to-response
+    return render_to_response('basic/index.html', {'types': types})
+
+
+def dispatch_detail(request, slug):
+    '''
+    View all calls for a specific dispatch type.
+    '''
+    # Use the get_object_or_404 shortcut to return a specific type
+    type = get_object_or_404(Type, slug=slug)
+
+    # Now get all the dispatches associated with that type
+    dispatches = type.dispatch_set.all()
+
+    # Again, use render_to_response
+    return render_to_response('basic/crime_detail.html', {'type': type, 'dispatches': dispatches})
+
+
+########## ADVANCED ##########
 
 def index(request):
     '''
@@ -11,7 +40,7 @@ def index(request):
 
     # Use the render-to-response shortcut to send the data to a template
     # See: https://docs.djangoproject.com/en/dev/topics/http/shortcuts/#render-to-response
-    return render_to_response('map.html', {'types': types})
+    return render_to_response('advanced/index.html', {'types': types})
 
 
 def map_api(request):
@@ -48,4 +77,4 @@ def map_api(request):
     # file and not an HTML page, we want browsers and other clients to see it as the correct
     # type of file. That's where the optional mimetype argument comes in.
     # Reference here: http://en.wikipedia.org/wiki/Internet_media_type
-    return render_to_response('points.json', {'points': points}, mimetype="application/json")
+    return render_to_response('advanced/points.json', {'points': points}, mimetype="application/json")

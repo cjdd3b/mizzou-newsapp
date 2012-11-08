@@ -1,0 +1,5 @@
+[
+{% for p in points %}
+    {"lat": "{{ p.lat }}", "lng": "{{ p.lng }}"}{% if not forloop.last %},{% endif %}
+{% endfor %}
+]

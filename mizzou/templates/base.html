@@ -20,7 +20,10 @@
 
     <body>
         <div class="container">
-            <h1>Columbia Crime</h1>
+            {% comment %}These templates make use of inheritance! More details here https://docs.djangoproject.com/en/dev/topics/templates/#template-inheritance{% endcomment %}
+
+            <h1>{% block title %}Columbia Police Dispatch{% endblock %}</h1>
+
             {% block body %}{% endblock %}
         </div>
     </body>
