@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Columbia Police Dispatch: {{ type.name }}{% endblock %}
+
+{% block body %}
+
+<div id="map"></div>
+
+<script type="text/javascript">
+    // Set up the map
+    map = new L.Map('map');
+
+    // Get the tiles we'll be using, which in this case are free from
+    // Open Street Map: http://www.openstreetmap.us/
+    var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    var osmAttrib='Map data © OpenStreetMap contributors';
+    var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib}); 
+    map.addLayer(osm);      
+
+    // Center map on Columbia
+    map.setView(new L.LatLng(38.972180,-92.316170), 12);
+
+    // Now fill a list with the points based on our incoming data
+    var dispatches = [
+        {% for d in dispatches %}
+        ["{{ d.lat }}", "{{ d.lng }}"]{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    ];
+
+    // And now plot the points
+    for (var i = 0; i < dispatches.length; i++) {
+        L.marker(dispatches[i]).addTo(map)
+    }
+
+</script>
+
+{% endblock %}
