@@ -2,11 +2,42 @@
 
 {% block body %}
 
-
-
 <div id="map"></div>
 
     <script type="text/javascript">
+        var activelayers = [];
+
+        function removeMarkers() {
+            for (i=0;i<activelayers.length;i++) {
+                map.removeLayer(activelayers[i]);
+            }
+            activelayers=[];
+        }
+
+        function getPoints(selectObj) {
+            removeMarkers();
+
+            var params = {};
+            if(selectObj) {
+                var idx = selectObj.selectedIndex;
+                var type = selectObj.options[idx].value; 
+                params['type'] = type;
+            }
+
+            var markers = [];
+            $.getJSON('/points/', params, function(data, textStatus, jqXHR) {
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].lat && data[i].lng) {
+                        markers.push(L.marker([data[i].lat, data[i].lng]).bindPopup("<b>Hello world!</b><br />I am a popup."));
+                    }
+                    //html += '<div class="item">' + '<a href="' + link + '" target="_blank">' + text + '</a></div>';
+                }
+                var markerLayer = L.layerGroup(markers);
+                map.addLayer(markerLayer);
+                activelayers.push(markerLayer);
+            }); 
+        }
+
         map = new L.Map('map');
 
         var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -16,21 +47,20 @@
         map.setView(new L.LatLng(38.972180,-92.316170), 12);
         map.addLayer(osm);
 
-        $.getJSON('/points/', function(data, textStatus, jqXHR) {
-            for (var i = 0; i < data.length; i++) {
-                L.marker([data[i].lat, data[i].lng]).addTo(map)
-                    .bindPopup("<b>Hello world!</b><br />I am a popup.");
-                //html += '<div class="item">' + '<a href="' + link + '" target="_blank">' + text + '</a></div>';
-            }
-        }); 
+        getPoints();
+
+
     </script>
 </div>
 
 <div id="navstuff" style="width:100%; margin-top:20px; text-align:center;">
 
-    <select>
-        <option>Arson</option>
+    <select onchange="getPoints(this);">
+        {% for t in types %}
+        <option value="{{ t.slug }}">{{ t.name }}</option>
+        {% endfor %}
     </select>
+
 </div>
 
 {% endblock %}

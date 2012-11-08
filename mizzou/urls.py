@@ -6,16 +6,15 @@ from django.views.generic import TemplateView
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'mizzou.views.home', name='home'),
-    # url(r'^mizzou/', include('mizzou.foo.urls')),
-
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 
-    (r'^map/', TemplateView.as_view(template_name="map.html")),
+    # More info on URL structures here:
+    # https://docs.djangoproject.com/en/dev/topics/http/urls/
+
+    (r'^$', 'mizzou.apps.dispatch.views.index'),
     (r'^points/', 'mizzou.apps.dispatch.views.map_api'),
 )
