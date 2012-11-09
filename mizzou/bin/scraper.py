@@ -5,8 +5,8 @@ from BeautifulSoup import BeautifulSoup
 
 ########## SETTINGS ##########
 
-START_DATE = '1/1/2012'
-END_DATE = '1/2/2012'
+START_DATE = '10/1/2012'
+END_DATE = '10/31/2012'
 
 URL = 'http://www.gocolumbiamo.com/PSJC/Services/911/911dispatch/police.php?type=&keyword=&Start_Date=%s&End_Date=%s&Submit=Go' % (START_DATE, END_DATE)
 
