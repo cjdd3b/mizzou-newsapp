@@ -42,4 +42,14 @@ Django includes instructions on which lines to uncomment in each file. Do the ur
 
 If you navigate to *127.0.0.1:8000/admin*  in your browser you should now see the admin interface. You can log in using the superuser you created earlier.
 
-h2. Building and enabling models
+h2. Creating your first app
+
+Remember that Django projects are divided into two basic units: *Projects*, which you created already with the @django-admin.py startproject mizzou@ command; and *Apps*, which are the sets of models and views that compose each chunk of a project.
+
+The way we learned in class, all of your apps should be stored in a directory called "apps" in the same subdirectory as your settings.py file. To create that on a Mac, navigate to the proper place and type:
+
+@mkdir apps
+cd apps
+touch __init__.py@
+
+Remember we need the __init__.py file for Python to be able to access the directory.
