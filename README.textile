@@ -12,6 +12,6 @@ Cloning the app from git will allow you to have a full functional version of the
 
 Cloning is easy. If you have git installed, simply navigate to the Desktop (or any other directory you prefer) on the command line and type:
 
-@git clone git\@github.com:ireapps/mizzou-newsapp.git@
+@<notextile>git clone git@github.com:ireapps/mizzou-newsapp.git</notextile>@
 
 You should see the application download. Once that's complete, simply navigate into the directory containing manage.py and type @python manage.py runserver@ and the app should start as normal. Remember that you can view it in your browser at the address *127.0.0.1:8000*.
