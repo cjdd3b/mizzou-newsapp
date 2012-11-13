@@ -53,3 +53,14 @@ The way we learned in class, all of your apps should be stored in a directory ca
 @touch __init__.py@
 
 Remember we need the __init__.py file for Python to be able to access the directory.
+
+The next thing we'll do is create an app for our Dispatch records. Navigate into the apps directory you just created and type:
+
+@django-admin.py startproject dispatch@
+
+You should see a new folder appear with a models, views and tests file.
+
+Finally, you need to hook up your app to the INSTALLED_APPS setting in your settings.py file. Open that and add @'mizzou.apps.dispatch',@ to your INSTALLED_APPS setting.
+
+h2. Models, templates and views
+
