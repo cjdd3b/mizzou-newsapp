@@ -21,3 +21,15 @@ You should see the application download. For students who attended the class, yo
 Once that's complete, simply navigate into the directory containing manage.py and type @python manage.py runserver@ and the app should start as normal. Remember that you can view it in your browser at the address *127.0.0.1:8000*.
 
 h3. Starting from scratch
+
+To build this application from scratch, as we did in class, requires a few more steps. Start by installing django using the standard @pip install django@ command. Then navigate to the directory of your choice and start a new project like so:
+
+@django-admin.py startproject mizzou@
+
+You'll see a new directory structure be created for your project. Navigate into the directory, and then into the separate *mizzou* subdirectory underneath it. Now you'll want to configure your DATABASES setting to create a new SQLite database. The easiest way to do that is to copy the settings from this repository and paste them into your local copy.
+
+Next you'll have to set up your database. Navigate back to the directory where your manage.py file is stored and type:
+
+@python manage.py syncdb@
+
+Follow the prompts to create a superuser while you're at it.
