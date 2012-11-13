@@ -14,11 +14,16 @@ Cloning is easy. If you have git installed, simply navigate to the Desktop (or a
 
 @git clone git://github.com/ireapps/mizzou-newsapp.git@
 
-You should see the application download. For students who attended the class, you should already have all the necessary Python libraries installed. For those who don't, you can quickly install them like so using Python's handy @pip@ utility:
+You should see the application download into a new folder called *mizzou-newsapp*. For students who attended the class, you should already have all the necessary Python libraries installed. For those who don't, you can quickly install them like so using Python's handy @pip@ utility:
 
+@cd mizzou-newsapp@
 @pip install -r requirements.txt@
 
-Once that's complete, simply navigate into the directory containing manage.py and type @python manage.py runserver@ and the app should start as normal. Remember that you can view it in your browser at the address *127.0.0.1:8000*.
+Once that's complete, simply navigate into the base mizzou-newsapp directory, which contains manage.py, and type:
+
+@python manage.py runserver@
+
+The app should start as normal. Remember that you can view it in your browser at the address *127.0.0.1:8000*.
 
 h3. Starting from scratch
 
