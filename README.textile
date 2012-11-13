@@ -5,3 +5,11 @@ News app for the Nov. 9-11 training at Mizzou.
 h2. Getting started
 
 There are two ways you can get started using this app: cloning it from git or building it from scratch (like we did in class). We'll talk about the cloning option first.
+
+h3. Cloning from git
+
+Cloning the app from git will allow you to have a full functional version of the app on your desktop from the get-go, rather than having to rebuild it yourself. This will let you play with the code, make changes, and see how those changes affect the app.
+
+Cloning is easy. If you have git installed, simply navigate to the Desktop (or any other directory you prefer) on the command line and type:
+
+@git clone XXX@
