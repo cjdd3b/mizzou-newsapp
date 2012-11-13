@@ -1,4 +1,7 @@
-mizzou-newsapp
-==============
+h1. Mizzou news app
 
 News app for the Nov. 9-11 training at Mizzou.
+
+h2. Getting started
+
+There are two ways you can get started using this app: cloning it from git or building it from scratch (like we did in class). We'll talk about the cloning option first.
