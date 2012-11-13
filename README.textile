@@ -40,6 +40,6 @@ Now you should enable the admin interface, which requires uncommenting several l
 
 Django includes instructions on which lines to uncomment in each file. Do the urls.py uncommenting first (note the two lines toward the top, and one in the actual tuple of URLs). Now find the INSTALLED_APPS setting toward the bottom of settings.py and uncomment the admin line as directed.
 
-If you navigate to *127.0.0.1/admin* you should now see the admin interface. You can log in using the superuser you created earlier.
+If you navigate to *127.0.0.1:8000/admin*  in your browser you should now see the admin interface. You can log in using the superuser you created earlier.
 
 h2. Building and enabling models
