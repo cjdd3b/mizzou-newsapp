@@ -33,3 +33,13 @@ Next you'll have to set up your database. Navigate back to the directory where y
 @python manage.py syncdb@
 
 Follow the prompts to create a superuser while you're at it.
+
+h2. Enabling the admin
+
+Now you should enable the admin interface, which requires uncommenting several lines of code in two places: urls.py and settings.py.
+
+Django includes instructions on which lines to uncomment in each file. Do the urls.py uncommenting first (note the two lines toward the top, and one in the actual tuple of URLs). Now find the INSTALLED_APPS setting toward the bottom of settings.py and uncomment the admin line as directed.
+
+If you navigate to *127.0.0.1/admin* you should now see the admin interface. You can log in using the superuser you created earlier.
+
+h2. Building and enabling models
