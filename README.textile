@@ -75,3 +75,8 @@ The code in this repository is your best reference if you're looking to recreate
 *URLs* are like the traffic cop that tells incoming requests where to go. They are a mapping of URL patterns to specific views.
 
 And *Templates* are the HTML files that the view renders in its response.
+
+h2. Other notes
+
+# This app includes a fully functioning SQLite database of dispatch that you can use in your work. You'll find it in mizzou/data/dispatch.sqlite. To enable it, simply copy the database settings from this project into your local copy.
+# The web scraper we built in class is also included in this project. You'll see it in mizzou/bin/scraper.py
