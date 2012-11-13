@@ -56,7 +56,7 @@ Remember we need the __init__.py file for Python to be able to access the direct
 
 The next thing we'll do is create an app for our Dispatch records. Navigate into the apps directory you just created and type:
 
-@django-admin.py startproject dispatch@
+@django-admin.py startapp dispatch@
 
 You should see a new folder appear with a models, views and tests file.
 
@@ -64,3 +64,14 @@ Finally, you need to hook up your app to the INSTALLED_APPS setting in your sett
 
 h2. Models, templates and views
 
+If you've made it this far, your project is pretty much set up. All you need to do now is fill in code for the models, views, URLs and templates.
+
+The code in this repository is your best reference if you're looking to recreate the project from scratch. Recall that:
+
+*Models* are a wrapper around your database. They let Django query your data without the need for SQL. You should build these first.
+
+*Views* are where the business logic of the application live. They are represented as functions that take a request as input and return a response.
+
+*URLs* are like the traffic cop that tells incoming requests where to go. They are a mapping of URL patterns to specific views.
+
+And *Templates* are the HTML files that the view renders in its response.
